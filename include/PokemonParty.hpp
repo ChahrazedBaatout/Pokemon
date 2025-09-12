@@ -9,9 +9,9 @@ public:
 
     void addPokemonToParty(const Pokemon pokemon);
 
-    Pokemon *extractPokemonFromPartyByIndex(int index);
+    Pokemon extractPokemonFromPartyByIndex(int index);
 
-    Pokemon *extractPokemonFromPartyByName(string name);
+    Pokemon extractPokemonFromPartyByName(const string& name);
     // you're inherting from PokemonVector, you should implement the pure virtual functions here
     void displayAllPokemons() override;
 };

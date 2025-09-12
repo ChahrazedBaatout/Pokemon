@@ -24,5 +24,5 @@ public:
 
     Pokemon *getPokemonByName(string name);
 
-    virtual void displayAllPokemons();
+    virtual void displayAllPokemons() = 0;
 };
