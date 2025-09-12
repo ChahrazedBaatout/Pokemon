@@ -1,17 +1,14 @@
 //
 // Created by mahdihadjsassi on 12/09/2025.
 //
-
+#include "../BasePage.hpp"
 #include <SFML/Graphics.hpp>
 
-class WelcomePage : public sf::Drawable {
+class WelcomePage : public BasePage {
 public:
     WelcomePage();
     bool isTimeUp() const;
-    void update();
+    void update() override;
 private:
-    sf::Text text_;
-    sf::Font font_;
     sf::Clock clock_;
-    virtual void draw(sf::RenderTarget& target, sf::RenderStates states) const override;
 };

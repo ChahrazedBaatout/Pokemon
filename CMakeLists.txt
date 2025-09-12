@@ -17,7 +17,9 @@ add_executable(demoTP1 main.cpp
         gui/WelcomePage/WelcomePage.cpp
         gui/WelcomePage/WelcomePage.hpp
         gui/HomePage/HomePage.cpp
-        gui/HomePage/HomePage.h)
+        gui/HomePage/HomePage.hpp
+        gui/BasePage.hpp
+        gui/BasePage.cpp)
 
 target_link_libraries(demoTP1
         sfml-graphics
