@@ -1,4 +1,4 @@
-#include "PokemonParty.hpp"
+#include "../include/PokemonParty.hpp"
 
 void PokemonParty::addPokemonToParty(const Pokemon pokemon) {
     my_pokemons.push_back(pokemon);

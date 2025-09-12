@@ -1,4 +1,4 @@
-#include "PokemonVector.hpp"
+#include "../include/PokemonVector.hpp"
 
 class PokemonParty: public PokemonVector {
 

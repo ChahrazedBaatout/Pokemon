@@ -1,8 +1,10 @@
-#include "Pokemon.hpp"
+#include "../include/Pokemon.hpp"
 #include <iostream>
+#include <string>
+using namespace  std;
 
-// Constructeur
-Pokemon::Pokemon(int id, std::string name, int evolution, double maxHitPoint, double currHitPoint, double attack, double defense)
+
+Pokemon::Pokemon(int id, string name, int evolution, double maxHitPoint, double currHitPoint, double attack, double defense)
     : id(id),
       name(name),
       evolution(evolution),
@@ -12,7 +14,6 @@ Pokemon::Pokemon(int id, std::string name, int evolution, double maxHitPoint, do
       defense(defense) {
 }
 
-// Constructeur de copie
 Pokemon::Pokemon(const Pokemon& other)
     : id(other.id),
       name(other.name),
@@ -21,49 +22,45 @@ Pokemon::Pokemon(const Pokemon& other)
       currHitPoint(other.currHitPoint),
       attack(other.attack),
       defense(other.defense) {
-    std::cout << "Constructeur de copie appelé" << std::endl;
-    std::cout << std::endl;
+    cout << "Constructeur de copie appelé" << endl;
+    cout << endl;
 }
 
-// Destructeur
 Pokemon::~Pokemon() {
-    std::cout << "Destructeur appelé: " << name << " détruit" << std::endl;
-    std::cout << std::endl;
+    cout << "Destructeur appelé: " << name << " détruit" << endl;
+    cout << endl;
 }
 
 // Getters
 int Pokemon::getId() const { return id; }
-std::string Pokemon::getName() const { return name; }
+string Pokemon::getName() const { return name; }
 int Pokemon::getEvolution() const { return evolution; }
 double Pokemon::getMaxHitPoint() const { return maxHitPoint; }
 double Pokemon::getCurrHitPoint() const { return currHitPoint; }
 double Pokemon::getAttack() const { return attack; }
 double Pokemon::getDefense() const { return defense; }
 void Pokemon::displayInfo() {
-    std::cout << "ID: " << id << std::endl;
-    std::cout << "Nom: " << name << std::endl;
-    std::cout << "Évolution: " << evolution << std::endl;
-    std::cout << "HP maximum: " << maxHitPoint << std::endl;
-    std::cout << "HP actuel: " << currHitPoint << std::endl;
-    std::cout << "Attaque: " << attack << std::endl;
-    std::cout << "Défense: " << defense << std::endl;
-    std::cout << std::endl;
+    cout << "ID: " << id << endl;
+    cout << "Nom: " << name << endl;
+    cout << "Évolution: " << evolution << endl;
+    cout << "HP maximum: " << maxHitPoint << endl;
+    cout << "HP actuel: " << currHitPoint << endl;
+    cout << "Attaque: " << attack << endl;
+    cout << "Défense: " << defense << endl;
+    cout << endl;
 }
 
-void Pokemon::launch_attack(Pokemon &attacked) {
-    std::cout << name << " a attaqué " << attacked.name << "!" << std::endl;
-    if (attack > attacked.defense) {
-        double dommage = attack - attacked.defense;
-        attacked.currHitPoint -= dommage;
-        std::cout << attacked.name << " a perdu " << dommage << " hitpoints!" << std::endl;
-        std::cout << std::endl;
-        if (attacked.currHitPoint <= 0) {
-            attacked.currHitPoint = 0;
-            std::cout << attacked.name << " s'est décédé!" << std::endl;
-            std::cout << std::endl;
-        }
-    } else {
-        std::cout << "L'attaque de " << name << " n'a été pas assez forte!" << std::endl;
-        std::cout << std::endl;
+void Pokemon::attacking(Pokemon& target) const{
+    double damage = this->attack - target.defense ;
+    if (damage < 0) damage = 0;
+
+    target.currHitPoint -= damage;
+    if (target.currHitPoint < 0) target.currHitPoint= 0;
+
+    cout << this->name << " attaque " << target.name <<endl;
+
+
+    if (target.currHitPoint== 0) {
+        cout << target.name << " est decede. !" << endl;
     }
 }

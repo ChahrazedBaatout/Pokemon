@@ -10,8 +10,8 @@ add_executable(demoTP1 main.cpp
         include/PokemonVector.cpp
         include/Pokedex.cpp
         include/Pokedex.hpp
-        "include/PokemonParty.cpp"
-        "include/PokemonParty.hpp"
+        include/PokemonParty.cpp
+        include/PokemonParty.hpp
         include/PokemonAttack.cpp
         include/PokemonAttack.hpp)
 

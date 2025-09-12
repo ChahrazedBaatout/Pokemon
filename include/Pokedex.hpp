@@ -1,17 +1,14 @@
 #include "PokemonVector.hpp"
-#include <fstream>
-#include <sstream>
 #include <string>
+using namespace  std;
 
-const string chemin = "pokedex.csv";
-
-class Pokedex: public PokemonVector {
+class Pokedex : public PokemonVector {
 private:
     static Pokedex* instance;
+    string chemin = "pokedex.csv";
     Pokedex();
 
-    public:
-     Pokemon* getPokemonByName(string name) ;
-    Pokemon* getPokemonByIndex(int index);
+public:
     static Pokedex* getInstance();
+
 };

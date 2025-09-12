@@ -1,4 +1,4 @@
-#include "PokemonParty.hpp"
+#include "../include/PokemonParty.hpp"
 using namespace  std;
 
 class PokemonAttack : public PokemonParty {

@@ -1,10 +1,14 @@
 #include "Pokedex.hpp"
+#include <fstream>
+#include <sstream>
+#include <string>
+using namespace std;
 
-Pokedex *Pokedex::instance = nullptr;
+Pokedex* Pokedex::instance = nullptr;
 
-Pokedex *Pokedex::getInstance() {
+Pokedex* Pokedex::getInstance() {
     if (instance == nullptr) {
-        instance = new  Pokedex();
+        instance = new Pokedex();
     }
     return instance;
 }
@@ -20,15 +24,17 @@ Pokedex::Pokedex() {
             champs.push_back(champ);
         }
         if (!champs.empty()) {
-            addPokemon(Pokemon(stoi(champs[0]), champs[1], stod(champs[5]), stod(champs[6]), stod(champs[7]),
-                                       stoi(champs[11]), stoi(champs[4])));
+            addPokemon(Pokemon(stoi(champs[0]), champs[1], stod(champs[5]),
+                              stod(champs[6]), stod(champs[7]), stoi(champs[11]),
+                              stoi(champs[4])));
         }
     }
 }
 
-Pokemon* Pokedex::getPokemonByIndex(int index) {
-    if (index >= 0 && index < getPokemonsCount()) {
-        return new Pokemon(getPokemonAt(index));
+void PokemonVector::displayAllPokemons()  {
+    cout << "All Pokemons in the Pokedex:" << endl;
+    for (Pokemon &pokemon : pokemons) {
+        pokemon.displayInfo();
     }
-    throw out_of_range("Index out of range");
+    cout << "-----------------------" << endl;
 }
