@@ -8,7 +8,7 @@ int PokemonParty::getPokemonsCount() const {
     return my_pokemons.size();
 }
 
-Pokemon* PokemonParty::extractPokemonFromPartyByIndex(int index) {
+Pokemon *PokemonParty::extractPokemonFromPartyByIndex(int index) {
     if (index >= 0 && index < my_pokemons.size()) {
         Pokemon extracted = my_pokemons.at(index);
         my_pokemons.erase(my_pokemons.begin() + index);
@@ -17,7 +17,7 @@ Pokemon* PokemonParty::extractPokemonFromPartyByIndex(int index) {
     return nullptr;
 }
 
-Pokemon* PokemonParty::extractPokemonFromPartyByName(string name) {
+Pokemon *PokemonParty::extractPokemonFromPartyByName(string name) {
     for (size_t i = 0; i < my_pokemons.size(); ++i) {
         if (my_pokemons[i].getName() == name) {
             Pokemon extracted = my_pokemons.at(i);
@@ -26,4 +26,10 @@ Pokemon* PokemonParty::extractPokemonFromPartyByName(string name) {
         }
     }
     return nullptr;
+}
+
+void PokemonVector::displayAllPokemons() {
+    for (Pokemon &pokemon: pokemons) {
+        pokemon.displayInfo();
+    }
 }
