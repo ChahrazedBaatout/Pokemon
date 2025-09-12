@@ -15,7 +15,9 @@ add_executable(demoTP1 main.cpp
         include/PokemonAttack.cpp
         include/PokemonAttack.hpp
         gui/WelcomePage/WelcomePage.cpp
-        gui/WelcomePage/WelcomePage.hpp)
+        gui/WelcomePage/WelcomePage.hpp
+        gui/HomePage/HomePage.cpp
+        gui/HomePage/HomePage.h)
 
 target_link_libraries(demoTP1
         sfml-graphics

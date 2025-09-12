@@ -1,16 +1,13 @@
 #include "gui/WelcomePage/WelcomePage.hpp"
+#include "gui/HomePage/HomePage.hpp"
 #include <SFML/Graphics.hpp>
+
 int main() {
     sf::RenderWindow window(sf::VideoMode(800, 600), "Hello SFML");
 
     WelcomePage welcomePage;
+    HomePage mainPage;
     bool showWelcome = true;
-
-    sf::Font font;
-    font.loadFromFile("../resources/font/arial.ttf");
-    sf::Text mainText("Page principale", font, 48);
-    mainText.setFillColor(sf::Color::Green);
-    mainText.setPosition(180, 250);
 
     while (window.isOpen()) {
         sf::Event event{};
@@ -28,7 +25,8 @@ int main() {
                 showWelcome = false;
             }
         } else {
-            window.draw(mainText);
+            mainPage.update();
+            window.draw(mainPage);
         }
 
         window.display();
