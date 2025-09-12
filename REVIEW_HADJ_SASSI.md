@@ -16,6 +16,10 @@ I really appreciate the README.md file, that is in the source folder, so we can 
   - It's fine to have an approach that the hpp file are with their cpp file. But I would rather put the cpp file together
   and the hpp files together. or to put a folder named entity that contains folders with the names of the classes, in each 
   entity folder, put the hpp and cpp files of the class.
+- I recommend to follow the clean code principles like :
+  - remove all magic numbers
+  - extract strings and values in enumerations
+  - keep only the comments fot the specific and complex part of the code.
 
 ## Intervention
 ### Code Structure
@@ -37,3 +41,9 @@ I really appreciate the README.md file, that is in the source folder, so we can 
 
 ### Added Code:
 Since you didn't started yet the graphical part, I'll make a first window that will welcome us to the game.
+
+Added a gui folder contains a welcome folder that used to welcome the player for 1 seconds before playing the game. Of course i've updated main.cpp.
+
+Also added a Arial font in resources folder.
+
+I recommend to put the pokedex.csv in this folder resources.
