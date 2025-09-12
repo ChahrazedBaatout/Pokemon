@@ -20,17 +20,16 @@ void PokemonAttack::createSetFromParty(int number_of_pokemons, int random_seed) 
 }
 
 void PokemonAttack::reintegrateAllToParty() {
-    for (const Pokemon &pokemon : attack_team) {
+    for (const Pokemon &pokemon: attack_team) {
         addPokemonToParty(pokemon);
     }
     attack_team.clear();
 }
 
 void PokemonAttack::reintegrateDeadToParty() {
-    for (Pokemon pokemon : attack_team) {
-        if (pokemon.getCurrHitPoint()<= 0) {
+    for (Pokemon pokemon: attack_team) {
+        if (pokemon.getCurrHitPoint() <= 0) {
             addPokemonToParty(pokemon);
         }
     }
 }
-
