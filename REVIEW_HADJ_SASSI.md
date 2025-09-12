@@ -42,7 +42,11 @@ I really appreciate the README.md file, that is in the source folder, so we can 
 ### Added Code:
 Since you didn't started yet the graphical part, I'll make a first window that will welcome us to the game.
 
-Added a gui folder contains a welcome folder that used to welcome the player for 1 seconds before playing the game. Of course i've updated main.cpp.
+Also i 've done : 
+
+- An abstract class named BasePage that contains the necessary to make gui page
+- Welcome Page inherits BasePage that shows a welcome message for 1 seconds.
+- Home Page inherits BasePage that shows a text to modify after
 
 Also added a Arial font in resources folder.
 
