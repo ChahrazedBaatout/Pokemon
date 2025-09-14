@@ -6,9 +6,8 @@ include_directories(include)
 add_executable(demoTP1 main.cpp
         include/Pokemon.hpp
         include/PokemonVector.hpp
-        src/Pokemon.cpp
         src/PokemonVector.cpp
-        src/Pokedex.cpp
+        src/Pokemon.cpp
         include/Pokedex.hpp
         src/PokemonParty.cpp
         include/PokemonParty.hpp
@@ -19,7 +18,8 @@ add_executable(demoTP1 main.cpp
         gui/HomePage/HomePage.cpp
         gui/HomePage/HomePage.hpp
         gui/BasePage.hpp
-        gui/BasePage.cpp)
+        gui/BasePage.cpp
+)
 
 target_link_libraries(demoTP1
         sfml-graphics

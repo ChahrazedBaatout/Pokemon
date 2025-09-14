@@ -1,35 +1,20 @@
 #include "../include/PokemonParty.hpp"
+#include <iostream>
 
-void PokemonParty::addPokemonToParty(const Pokemon pokemon) {
-    my_pokemons.push_back(pokemon);
-}
+using namespace std;
 
-int PokemonParty::getPokemonsCount() const {
-    return my_pokemons.size();
-}
-
-Pokemon PokemonParty::extractPokemonFromPartyByIndex(int index) {
-    if (index >= 0 && index < my_pokemons.size()) {
-        Pokemon extracted = my_pokemons.at(index);
-        my_pokemons.erase(my_pokemons.begin() + index);
-        return extracted;
-    }
-    throw std::out_of_range("Index invalide");
-}
-
-Pokemon PokemonParty::extractPokemonFromPartyByName(const string& name) {
-    for (size_t i = 0; i < my_pokemons.size(); ++i) {
-        if (my_pokemons[i].getName() == name) {
-            Pokemon extracted = my_pokemons.at(i);
-            my_pokemons.erase(my_pokemons.begin() + i);
-            return extracted;
-        }
-    }
-    throw std::invalid_argument("Nom introuvable");
-}
+PokemonParty::PokemonParty() {}
 
 void PokemonParty::displayAllPokemons() {
-    for (Pokemon &pokemon: my_pokemons) {
-        pokemon.displayInfo();
+    cout << "=== Pokemon Party ===\n";
+    for (Pokemon& p : getPokemons()) {
+        p.displayInfo();
     }
+    cout << "Total Pokemons in Party: " << getPokemonsCount() << endl;
+}
+void PokemonParty::removePokemon(int index) {
+    if (index < 0 || index >= getPokemons().size()) {
+        throw out_of_range("Index out of range");
+    }
+    getPokemons().erase(getPokemons().begin() + index);
 }

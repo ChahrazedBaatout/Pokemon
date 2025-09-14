@@ -1,7 +1,8 @@
-#include<iostream> // This line is unsed since it's imported in the Pokemon.cpp, we can remove it from the code
+#ifndef POKEMON_HPP
+#define POKEMON_HPP
+
 #include <string>
 using namespace std;
-
 class Pokemon {
 private:
     int id;
@@ -15,7 +16,7 @@ private:
 public:
     Pokemon(int id, string name, int evolution, double maxHitPoint, double currHitPoint, double attack, double defense);
 
-    Pokemon(const Pokemon &other); // I prefer to use the parameter otherPokemon it would be more comprehensible
+    Pokemon(const Pokemon &otherPokemon);
 
     ~Pokemon();
 
@@ -49,3 +50,5 @@ public:
 
     void setDefense(double def);
 };
+
+#endif // POKEMON_HPP

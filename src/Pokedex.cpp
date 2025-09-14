@@ -1,36 +1,65 @@
 #include "../include/Pokedex.hpp"
 #include <fstream>
 #include <sstream>
-#include <string>
+#include <iostream>
+#include <stdexcept>
+
 using namespace std;
 
-Pokedex *Pokedex::instance = nullptr;
+Pokedex* Pokedex::instance = nullptr;
 
-Pokedex *Pokedex::getInstance() {
+Pokedex::Pokedex() {
+    loadFromCSV("pokedex.csv");
+}
+
+void Pokedex::loadFromCSV(const string& filename) {
+    ifstream file(filename);
+    if (!file.is_open()) {
+        throw runtime_error("Failed to open CSV file: " + filename);
+    }
+
+    string line;
+    while (getline(file, line)) {
+        stringstream temp(line);
+        string token;
+        int id, evolution;
+        string name;
+        double maxHP, attack, defense;
+
+        getline(temp, token, ','); id = stoi(token);
+        getline(temp, name, ',');
+        getline(temp, token, ','); evolution = stoi(token);
+        getline(temp, token, ','); maxHP = stod(token);
+        getline(temp, token, ','); attack = stod(token);
+        getline(temp, token, ','); defense = stod(token);
+
+        Pokemon p(id, name, evolution, maxHP, maxHP, attack, defense);
+            addPokemon(p);
+
+    }
+    file.close();
+}
+
+Pokedex* Pokedex::getInstance() {
     if (instance == nullptr) {
         instance = new Pokedex();
     }
     return instance;
 }
 
-Pokedex::Pokedex() {
-    ifstream fichier(chemin);
-    string ligne;
-    while (getline(fichier, ligne)) {
-        stringstream ss(ligne);
-        string champ;
-        vector<string> champs;
-        while (getline(ss, champ, ',')) {
-            champs.push_back(champ);
-        }
-        if (!champs.empty()) {
-            addPokemon(Pokemon(stoi(champs[0]), champs[1], stod(champs[5]),
-                               stod(champs[6]), stod(champs[7]), stoi(champs[11]),
-                               stoi(champs[4])));
-        }
+void Pokedex::displayAllPokemons() {
+    cout << "=== Pokedex Entries ===\n";
+    for (Pokemon& p : getPokemons()) {
+        p.displayInfo();
     }
+    cout << "Total Pokemons: " << getPokemonsCount() << endl;
 }
 
-void Pokedex::displayAllPokemons() {
-    //to fill this method!
+Pokemon* Pokedex::getClone(int id)  {
+    for ( Pokemon& p : getPokemons()) {
+        if (p.getId() == id) {
+            return new Pokemon(p);
+        }
+    }
+    return nullptr;
 }

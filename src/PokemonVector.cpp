@@ -1,35 +1,38 @@
-#include <iostream> //unsed imporation
 #include "../include/PokemonVector.hpp"
 
+using namespace std;
 
-void PokemonVector::addPokemon(const Pokemon &pokemon) {
+void PokemonVector::addPokemon(const Pokemon& pokemon) {
     pokemons.push_back(pokemon);
 }
 
-const Pokemon &PokemonVector::getPokemonAt(int index) const {
-    return pokemons.at(index);
+Pokemon &PokemonVector::getPokemonAt(int index){
+    if (index < 0 || index >= pokemons.size()) {
+        throw out_of_range("Index out of range");
+    }
+    return pokemons[index];
 }
 
-int PokemonVector::getPokemonsCount() const {
+size_t PokemonVector::getPokemonsCount() const {
     return pokemons.size();
 }
 
-const vector<Pokemon> &PokemonVector::getPokemons() const {
+ vector<Pokemon>& PokemonVector::getPokemons() {
     return pokemons;
 }
 
-Pokemon *PokemonVector::getPokemonByIndex(int index) {
-    if (index >= 0 && index < getPokemonsCount()) {
-        return new Pokemon(getPokemonAt(index));
+Pokemon* PokemonVector::getPokemonByIndex(int index) {
+    if (index < 0 || index >= pokemons.size()) {
+        return nullptr;
     }
-    throw out_of_range("Index out of range");
+    return new Pokemon(pokemons[index]);
 }
 
-Pokemon *PokemonVector::getPokemonByName(string name) {
-    for (const Pokemon &pokemon: getPokemons()) {
-        if (pokemon.getName() == name) {
-            return new Pokemon(pokemon);
+Pokemon* PokemonVector::getPokemonByName(string name) {
+    for (const Pokemon& p : pokemons) {
+        if (p.getName() == name) {
+            return new Pokemon(p);
         }
     }
-    throw invalid_argument("Pokemon not found");
+    return nullptr;
 }

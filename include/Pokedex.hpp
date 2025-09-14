@@ -1,16 +1,18 @@
+#ifndef POKEDEX_HPP
+#define POKEDEX_HPP
 #include "PokemonVector.hpp"
 #include <string>
-using namespace std;
 
 class Pokedex : public PokemonVector {
 private:
-    static Pokedex *instance;
-    string chemin = "pokedex.csv"; // I suggest this to be a constant or enviromental variable
-
+    static Pokedex* instance;
     Pokedex();
+    void loadFromCSV(const string& filename);
 
 public:
-    static Pokedex *getInstance();
-    // Since Pokedex inherits from PokemonVector, it should override the virtual method : displayAllPokemons()
+    static Pokedex* getInstance();
     void displayAllPokemons() override;
+    Pokemon* getClone(int id) ;
+
 };
+#endif
