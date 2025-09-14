@@ -1,4 +1,4 @@
-#include "Pokedex.hpp"
+#include "../include/Pokedex.hpp"
 #include <fstream>
 #include <sstream>
 #include <string>

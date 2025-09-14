@@ -6,13 +6,13 @@ include_directories(include)
 add_executable(demoTP1 main.cpp
         include/Pokemon.hpp
         include/PokemonVector.hpp
-        include/Pokemon.cpp
-        include/PokemonVector.cpp
-        include/Pokedex.cpp
+        src/Pokemon.cpp
+        src/PokemonVector.cpp
+        src/Pokedex.cpp
         include/Pokedex.hpp
-        include/PokemonParty.cpp
+        src/PokemonParty.cpp
         include/PokemonParty.hpp
-        include/PokemonAttack.cpp
+        src/PokemonAttack.cpp
         include/PokemonAttack.hpp
         gui/WelcomePage/WelcomePage.cpp
         gui/WelcomePage/WelcomePage.hpp
