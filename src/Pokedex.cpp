@@ -19,24 +19,35 @@ void Pokedex::loadFromCSV(const string& filename) {
     }
 
     string line;
+    bool firstLine = true;
     while (getline(file, line)) {
+        if (firstLine) {  // skip header
+            firstLine = false;
+            continue;
+        }
+
         stringstream temp(line);
         string token;
         int id, evolution;
         string name;
         double maxHP, attack, defense;
 
-        getline(temp, token, ','); id = stoi(token);
-        getline(temp, name, ',');
-        getline(temp, token, ','); evolution = stoi(token);
-        getline(temp, token, ','); maxHP = stod(token);
-        getline(temp, token, ','); attack = stod(token);
-        getline(temp, token, ','); defense = stod(token);
+        getline(temp, token, ','); id = stoi(token);      // #
+        getline(temp, name, ',');                         // Name
 
-        Pokemon p(id, name, evolution, maxHP, maxHP, attack, defense);
-            addPokemon(p);
+        getline(temp, token, ',');                        // Type 1 (ignorer)
+        getline(temp, token, ',');                        // Type 2 (ignorer)
+        getline(temp, token, ',');                        // Total (ignorer)
 
+        getline(temp, token, ','); maxHP = stod(token);   // HP
+        getline(temp, token, ','); attack = stod(token);  // Attack
+        getline(temp, token, ','); defense = stod(token); // Defense
+
+        Pokemon p(id, name, 0, maxHP, maxHP, attack, defense);
+        addPokemon(p);
     }
+
+
     file.close();
 }
 

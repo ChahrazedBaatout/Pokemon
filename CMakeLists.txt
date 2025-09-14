@@ -7,6 +7,7 @@ add_executable(demoTP1 main.cpp
         include/Pokemon.hpp
         include/PokemonVector.hpp
         src/PokemonVector.cpp
+        src/Pokedex.cpp
         src/Pokemon.cpp
         include/Pokedex.hpp
         src/PokemonParty.cpp
@@ -19,6 +20,8 @@ add_executable(demoTP1 main.cpp
         gui/HomePage/HomePage.hpp
         gui/BasePage.hpp
         gui/BasePage.cpp
+        src/Test.cpp
+        src/Test.hpp
 )
 
 target_link_libraries(demoTP1
