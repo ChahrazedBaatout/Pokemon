@@ -3,6 +3,7 @@
 #include <sstream>
 #include <iostream>
 #include <stdexcept>
+#include <map>
 
 using namespace std;
 
@@ -11,7 +12,6 @@ Pokedex* Pokedex::instance = nullptr;
 Pokedex::Pokedex() {
     loadFromCSV("pokedex.csv");
 }
-
 void Pokedex::loadFromCSV(const string& filename) {
     ifstream file(filename);
     if (!file.is_open()) {
@@ -20,8 +20,10 @@ void Pokedex::loadFromCSV(const string& filename) {
 
     string line;
     bool firstLine = true;
+    map<int, int> evolutionCount; // Map to track evolution count per ID
+
     while (getline(file, line)) {
-        if (firstLine) {  // skip header
+        if (firstLine) { // Skip header
             firstLine = false;
             continue;
         }
@@ -35,22 +37,27 @@ void Pokedex::loadFromCSV(const string& filename) {
         getline(temp, token, ','); id = stoi(token);      // #
         getline(temp, name, ',');                         // Name
 
-        getline(temp, token, ',');                        // Type 1 (ignorer)
-        getline(temp, token, ',');                        // Type 2 (ignorer)
-        getline(temp, token, ',');                        // Total (ignorer)
+        getline(temp, token, ',');                        // Type 1 (ignore)
+        getline(temp, token, ',');                        // Type 2 (ignore)
+        getline(temp, token, ',');                        // Total (ignore)
 
         getline(temp, token, ','); maxHP = stod(token);   // HP
         getline(temp, token, ','); attack = stod(token);  // Attack
         getline(temp, token, ','); defense = stod(token); // Defense
 
-        Pokemon p(id, name, 0, maxHP, maxHP, attack, defense);
+        // Increment evolution count for this ID
+        evolutionCount[id]++;
+        int count = evolutionCount[id];
+
+        // Set evolution to 0 if this is the first occurrence (count == 1), otherwise count - 1
+        evolution = (count == 1) ? 0 : count - 1;
+
+        Pokemon p(id, name, evolution, maxHP, maxHP, attack, defense);
         addPokemon(p);
     }
 
-
     file.close();
 }
-
 Pokedex* Pokedex::getInstance() {
     if (instance == nullptr) {
         instance = new Pokedex();

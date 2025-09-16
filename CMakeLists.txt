@@ -22,6 +22,7 @@ add_executable(demoTP1 main.cpp
         gui/BasePage.cpp
         src/Test.cpp
         src/Test.hpp
+
 )
 
 target_link_libraries(demoTP1
