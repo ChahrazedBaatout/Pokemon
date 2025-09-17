@@ -23,7 +23,7 @@ void Pokedex::loadFromCSV(const string& filename) {
     map<int, int> evolutionCount; // Map to track evolution count per ID
 
     while (getline(file, line)) {
-        if (firstLine) { // Skip header
+        if (firstLine) {
             firstLine = false;
             continue;
         }

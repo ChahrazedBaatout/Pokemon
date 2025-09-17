@@ -57,11 +57,11 @@ void Pokemon::attacking(Pokemon &target) const {
 }
 string Pokemon::getImagePath() const {
     ostringstream oss;
-    oss << "pokemon/" << id; // Base ID (e.g., "1", "2")
+    oss << "pokemon/" << id;
     if (evolution > 0) {
-        oss << "." << setfill('0') << setw(2) << evolution << ".png"; // e.g., "1.01.png", "1.02.png"
+        oss << "." << setfill('0') << setw(2) << evolution << ".png";
     } else {
-        oss << ".png"; // e.g., "1.png"
+        oss << ".png";
     }
     return oss.str();
 }

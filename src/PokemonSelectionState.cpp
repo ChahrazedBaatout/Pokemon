@@ -71,7 +71,6 @@ void PokemonSelectionState::handleEvent(sf::Event& event) {
 }
 
 void PokemonSelectionState::update() {
-    // Update sprite positions with scroll offset
     const int gridWidth = 8;
     for (size_t i = 0; i < allPokemonSprites.size(); ++i) {
         allPokemonSprites[i].setPosition(50 + (i % gridWidth) * 100, 50 + (i / gridWidth) * 100 - scrollOffset);

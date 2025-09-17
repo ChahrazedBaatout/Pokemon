@@ -4,7 +4,6 @@
 
 Game::Game() : window(sf::VideoMode(800, 600), "Pokemon Selector"), pokedex(Pokedex::getInstance()) {
     srand(static_cast<unsigned>(time(nullptr)));
-    // Initialize party with some Pokémon (example)
     party.addPokemon(*pokedex->getClone(1)); // Bulbizarre
     party.addPokemon(*pokedex->getClone(4)); // Salamèche
     party.addPokemon(*pokedex->getClone(7)); // Carapuce
@@ -13,7 +12,6 @@ Game::Game() : window(sf::VideoMode(800, 600), "Pokemon Selector"), pokedex(Poke
 
 Game::~Game() {
     delete currentState;
-    // Note: Pokedex is a singleton, so its deletion is handled by getInstance() if needed
 }
 
 void Game::run() {
