@@ -22,6 +22,13 @@ add_executable(demoTP1 main.cpp
         gui/BasePage.cpp
         src/Test.cpp
         src/Test.hpp
+        include/State.hpp
+        include/PokemonSelectionState.hpp
+        src/PokemonSelectionState.cpp
+        include/ExplorationState.hpp
+        src/ExplorationState.cpp
+        include/Game.hpp
+        src/Game.cpp
 
 )
 

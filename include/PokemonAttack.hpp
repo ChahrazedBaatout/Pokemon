@@ -1,6 +1,6 @@
 #include "PokemonParty.hpp"
 #include <vector>
-
+class Game;
 class PokemonAttack : public PokemonParty {
 private:
     static const int MAX_SIZE = 6;

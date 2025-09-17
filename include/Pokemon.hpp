@@ -49,6 +49,7 @@ public:
     void setAttack(double atk);
 
     void setDefense(double def);
+    string getImagePath() const;
 };
 
 #endif // POKEMON_HPP
