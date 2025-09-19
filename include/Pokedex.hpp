@@ -1,18 +1,20 @@
 #ifndef POKEDEX_HPP
 #define POKEDEX_HPP
+
 #include "PokemonVector.hpp"
 #include <string>
 
 class Pokedex : public PokemonVector {
 private:
     static Pokedex* instance;
-    Pokedex();
-    void loadFromCSV(const string& filename);
+
+    Pokedex(); // constructeur privé pour Singleton
 
 public:
     static Pokedex* getInstance();
-    void displayAllPokemons() override;
-    Pokemon* getClone(int id) ;
+    void loadFromCSV(const std::string& filename);
 
+    void displayAllPokemons() override; // implémentation obligatoire
 };
-#endif
+
+#endif // POKEDEX_HPP

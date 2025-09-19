@@ -16,3 +16,4 @@ Ce projet, réalisé dans le cadre du cours de l'introdiction au c++, vise à d�
 Pour installer SFML sur un système Linux (testé sous Ubuntu/Debian) :
 ```bash
 $ sudo apt-get install libsfml-dev
+

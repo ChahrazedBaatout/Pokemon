@@ -2,11 +2,12 @@
 #define POKEMON_HPP
 
 #include <string>
-using namespace std;
+#include <iostream>
+
 class Pokemon {
 private:
     int id;
-    string name;
+    std::string name;
     int evolution;
     double maxHitPoint;
     double currHitPoint;
@@ -14,42 +15,34 @@ private:
     double defense;
 
 public:
-    Pokemon(int id, string name, int evolution, double maxHitPoint, double currHitPoint, double attack, double defense);
+    Pokemon() : id(0), name(""), evolution(0), maxHitPoint(0), currHitPoint(0), attack(0), defense(0) {}
 
-    Pokemon(const Pokemon &otherPokemon);
+    Pokemon(int id, std::string name, int evolution, double maxHP, double currHP, double atk, double def);
 
-    ~Pokemon();
+    Pokemon(const Pokemon &other);
+
+    ~Pokemon() = default;
 
     void attacking(Pokemon &target) const;
 
-    void displayInfo();
+    void displayInfo() const;
 
-    int getId() const;
+    int getId() const { return id; }
+    std::string getName() const { return name; }
+    int getEvolution() const { return evolution; }
+    double getMaxHitPoint() const { return maxHitPoint; }
+    double getCurrHitPoint() const { return currHitPoint; }
+    double getAttack() const { return attack; }
+    double getDefense() const { return defense; }
 
-    string getName() const;
+    void setName(const std::string &n) { name = n; }
+    void setEvolution(int evo) { evolution = evo; }
+    void setMaxHitPoint(double maxhp) { maxHitPoint = maxhp; }
+    void setCurrHitPoint(double currhp) { currHitPoint = currhp; }
+    void setAttack(double atk) { attack = atk; }
+    void setDefense(double def) { defense = def; }
 
-    int getEvolution() const;
-
-    double getMaxHitPoint() const;
-
-    double getCurrHitPoint() const;
-
-    double getAttack() const;
-
-    double getDefense() const;
-
-    void setName(const string &n);
-
-    void setEvolution(int evo);
-
-    void setMaxHitPoint(double maxhp);
-
-    void setCurrHitPoint(double currhp);
-
-    void setAttack(double atk);
-
-    void setDefense(double def);
-    string getImagePath() const;
+    std::string toString() const;
 };
 
-#endif // POKEMON_HPP
+#endif
