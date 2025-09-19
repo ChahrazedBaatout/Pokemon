@@ -8,7 +8,7 @@ public:
     PokemonParty() = default;
 
 
-    void displayAllPokemons() override; // impl obligatoire
+    void displayAllPokemons() override;
          ~PokemonParty() override;};
 
 #endif // POKEMONPARTY_HPP

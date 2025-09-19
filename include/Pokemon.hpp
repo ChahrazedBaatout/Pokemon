@@ -4,6 +4,7 @@
 #include <string>
 #include <iostream>
 
+
 class Pokemon {
 private:
     int id;

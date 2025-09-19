@@ -8,13 +8,13 @@ class Pokedex : public PokemonVector {
 private:
     static Pokedex* instance;
 
-    Pokedex(); // constructeur privé pour Singleton
+    Pokedex();
 
 public:
     static Pokedex* getInstance();
     void loadFromCSV(const std::string& filename);
 
-    void displayAllPokemons() override; // implémentation obligatoire
+    void displayAllPokemons() override;
 };
 
 #endif // POKEDEX_HPP

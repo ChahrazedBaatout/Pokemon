@@ -19,7 +19,7 @@ public:
     void addPokemon(const Pokemon& pokemon);
     void removePokemon(int index);
 
-    // ✅ Implémentation commune (pas de "=0")
+
     virtual void displayAllPokemons();
 };
 
