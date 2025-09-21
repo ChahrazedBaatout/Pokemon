@@ -10,9 +10,12 @@ Pokemon::Pokemon(const Pokemon &other)
       attack(other.attack), defense(other.defense) {}
 
 void Pokemon::attacking(Pokemon &target) const {
-    double damage = attack - (target.getDefense() * 0.3);
-    if (damage < 1) damage = 1;
-    target.setCurrHitPoint(std::max(0.0, target.getCurrHitPoint() - damage));
+    int damage = (this->attack - target.getDefense() > 1)
+                   ? this->attack - target.getDefense()
+                   : 1;
+
+    target.currHitPoint -= damage;
+    if (target.currHitPoint < 0) target.currHitPoint = 0;
 }
 
 void Pokemon::displayInfo() const {

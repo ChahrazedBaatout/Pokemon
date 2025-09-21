@@ -27,7 +27,6 @@ void PokemonVector::removePokemon(int index) {
     }
 }
 
-// ✅ Implémentation générique
 void PokemonVector::displayAllPokemons() {
     std::cout << "=== Pokemons ===\n";
     for (auto& p : pokemons) {

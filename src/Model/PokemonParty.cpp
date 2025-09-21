@@ -8,5 +8,5 @@ void PokemonParty::displayAllPokemons() {
     }
     std::cout << "Total in party: " << getPokemonsCount() << std::endl;
 }
-PokemonParty::~PokemonParty() {} // vide
+PokemonParty::~PokemonParty() {}
 
