@@ -6,7 +6,7 @@
 void MainMenuState::onEnter(Game& g) {
     // Charger la police s'il n'est pas déjà chargé
     if (!Assets::instance().getFont("ui")) {
-        Assets::instance().loadFont("ui", "arial.ttf");
+        Assets::instance().loadFont("ui", "resources/arial.ttf");
     }
 
     auto f = Assets::instance().getFont("ui");

@@ -7,7 +7,7 @@
 Pokedex* Pokedex::instance = nullptr;
 
 Pokedex::Pokedex() {
-    loadFromCSV("pokedex.csv");
+    loadFromCSV("resources/pokedex.csv");
 }
 
 Pokedex* Pokedex::getInstance() {

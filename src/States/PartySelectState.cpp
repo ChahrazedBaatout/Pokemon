@@ -32,7 +32,7 @@ bool PartySelectState::loadPokemonTexture(int id, sf::Texture& outTex) const {
 
 PartySelectState::PartySelectState() {
     if (!Assets::instance().getFont("ui")) {
-        Assets::instance().loadFont("ui", "arial.ttf");
+        Assets::instance().loadFont("ui", "resources/arial.ttf");
     }
     auto f = Assets::instance().getFont("ui");
     if (f) {
